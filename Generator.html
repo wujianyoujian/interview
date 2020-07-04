@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function* foo(x) {
+      y = yield 1
+      yield 2 + y
+      yield 3
+    }
+    let it = foo(5)
+    console.log(it.next())
+    // next传入的参数等于上一个yield返回的值
+    console.log(it.next(12)) // 14
+    console.log(it.next())
+  </script>
+</body>
+
+</html>
